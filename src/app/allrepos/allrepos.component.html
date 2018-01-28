@@ -1,0 +1,25 @@
+<div class="container page">
+
+  <div class="m-5">
+    <form (submit)="doSearch()">
+      <div class="input-group">
+      <input type="text" [(ngModel)]="search" name="search" class="form-control rounded-0" placeholder="enter repository name">
+        <span class="input-group-btn">
+          <input type="submit" value="Search" class="btn btn-primary input-group-btn rounded-0">
+        </span>
+      </div>
+    </form>
+  </div>
+
+  <div *ngFor="let result of results.items" >
+    <h3>{{ result.name }}</h3>
+    <p class="m-0">{{ result.description }}</p>
+    <p class="text-muted font-italic">{{ result.html_url }}</p>
+    <span class="badge badge-info">Forks: {{result.forks_count}}</span>
+    <span class="badge badge-secondary">Stargazers: {{result.stargazers_count}}</span>
+    <span class="badge badge-danger">Open Issues: {{result.open_issues}} </span>
+    <a *ngIf="result.open_issues > 0" [routerLink]="['/issues/', result.full_name]"> See issues </a>
+    <hr>
+  </div>
+
+</div>

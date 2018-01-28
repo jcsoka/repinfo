@@ -1,0 +1,14 @@
+<div class="container page">
+
+  <h1 class="text-primary">
+    Issues for {{id}}
+  </h1>
+
+  <div *ngFor="let result of results.items">
+    <div *ngIf="result.state == 'open'">
+      <h3>{{ result.title }}</h3>
+      <p class="text-muted">{{ result.body }}</p>
+      <hr>
+    </div>
+  </div>
+</div>
